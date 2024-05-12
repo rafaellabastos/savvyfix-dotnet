@@ -12,3 +12,5 @@
 ## Arquitetura da solução
 ![Arquitetura_Software_SavvyFix (1)](https://github.com/rafaellabastos/savvyfix-dotnet/assets/85761347/d1bceb05-d4c4-49f9-b84b-5674334dc69f)
 
+## Tecnologias utilizadas
+

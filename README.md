@@ -10,6 +10,25 @@
 ## Arquitetura da solução
 ![Arquitetura_Software_SavvyFix](https://github.com/rafaellabastos/savvyfix-dotnet/assets/85761347/95202634-ced1-4b45-b543-aafb46ead510)
 
-
 ## Tecnologias utilizadas
+### Linguagens de programação
+1. Python
+2. JavaScript
+3. Java
+4. C#
 
+### Frameworks
+1. React Native
+2. Spring Boot
+3. .NET
+
+### Servidores de sistemas de banco de dados
+1. Oracle
+2. SQL
+
+### API
+1. Firebase
+2. Restful
+
+### Nuvem
+1. Azure

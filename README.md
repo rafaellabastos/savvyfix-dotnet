@@ -8,7 +8,8 @@
 <p>4. Rafaella Monique do Carmo Bastos - 552425</p><br>
 
 ## Arquitetura da solução
-![Arquitetura_Software_SavvyFix (1)](https://github.com/rafaellabastos/savvyfix-dotnet/assets/85761347/d1bceb05-d4c4-49f9-b84b-5674334dc69f)
+![Arquitetura_Software_SavvyFix](https://github.com/rafaellabastos/savvyfix-dotnet/assets/85761347/95202634-ced1-4b45-b543-aafb46ead510)
+
 
 ## Tecnologias utilizadas
 

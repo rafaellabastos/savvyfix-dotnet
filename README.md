@@ -21,6 +21,7 @@
 1. React Native
 2. Spring Boot
 3. .NET
+4. GitFlow
 
 ### Servidores de sistemas de banco de dados
 1. Oracle
@@ -32,3 +33,7 @@
 
 ### Nuvem
 1. Azure
+
+### Ferramentas auxiliares
+1. Archimate
+2. Trello

@@ -1,0 +1,22 @@
+@model IEnumerable<Clientes>
+
+@{
+    ViewData["Title"] = "Cadastro";
+}
+<h1>Cadastre-se Aqui!</h1>
+<form>
+    <div class="mb-3">
+        <label class="form-label">CPF: </label>
+        <input type="number" class="form-control" id="cpf" aria-describedby="cpf">
+        <div id="cpfHelp" class="form-text">Digite apenas os números</div>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Password</label>
+        <input type="password" class="form-control" id="exampleInputPassword1">
+    </div>
+    <div class="mb-3 form-check">
+        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+        <label class="form-check-label" for="exampleCheck1">Check me out</label>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>

@@ -1,0 +1,30 @@
+@model Produtos
+
+@{
+    ViewData["Title"] = "Adicionar Produtos";
+}
+<h1>Adicionar Produtos</h1>
+<form asp-action="Adicionar" asp-controller="Produtos" method="post">
+    <div class="mb-3">
+        <label class="form-label" for="nome">Nome: </label>
+        <input type="text" class="form-control" asp-for="NmProd" id="nome" required>
+    </div>
+    <div class="mb-3">
+        <label class="form-label" for="marca">Marca:</label>
+        <input type="text" asp-for="MarcaProd" class="form-control" id="marca" required>
+    </div>
+    <div class="mb-3">
+        <label class="form-label" for="descricao">Descrição:</label>
+        <input type="text" asp-for="DescProd" class="form-control" id="descricao" required>
+    </div>
+    <div class="mb-3">
+        <label class="form-label" for="preco">Preco:</label>
+        <input type="number" class="form-control" asp-for="PrecoFixo" id="preco" required>
+    </div>
+    <div class="mb-3">
+        <label class="form-label" for="img">Endereco da imagem:</label>
+        <input type="text" asp-for="Img" class="form-control" id="img" required>
+        <div id="imgHelp" class="form-text">Digite o endereço https de uma imagem</div>
+    </div>
+    <button type="submit" class="btn btn-primary">Cadastrar</button>
+</form>

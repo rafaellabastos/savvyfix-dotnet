@@ -7,9 +7,8 @@ namespace SavvyFix.Models
         [Key]
         public long IdCliente { get; set; }
 
-        public long? IdEndereco { get; set; }
-
         [Required(ErrorMessage = "O CPF é obrigatório.")]
+        [StringLength(11, MinimumLength = 11, ErrorMessage = "O CPF deve ter exatamente 11 números.")]
         public string CpfClie { get; set; } = null!;
 
         [Required(ErrorMessage = "O nome é obrigatório.")]
@@ -17,11 +16,17 @@ namespace SavvyFix.Models
 
         [Required(ErrorMessage = "A senha é obrigatória.")]
         public string SenhaClie { get; set; } = null!;
+
+        [Required(ErrorMessage = "O cep é obrigatório.")]
+        [StringLength(8, MinimumLength = 8, ErrorMessage = "O CEP deve ter exatamente 8 números.")]
+        public string CepEndereco { get; set; }
+
+        [Required(ErrorMessage = "A rua é obrigatória.")]
+        public string RuaEndereco { get; set; }
         
-        public virtual Atividade? Atividade { get; set; }
-
-        public virtual ICollection<Compras> Compras { get; set; } = new List<Compras>();
-
-        public virtual Enderecos? IdEnderecoNavigation { get; set; }
+        [Required(ErrorMessage = "O número é obrigatório.")]
+        public string NumEndereco { get; set; }
+        
+        
     }
 }

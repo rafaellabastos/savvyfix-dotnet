@@ -9,7 +9,7 @@ public class Atividade
 
     public string? ClimaAtual { get; set; }
 
-    public string DemandaProduto { get; set; } = null!;
+    public string DemandaProduto { get; set; }
 
     public DateTime? HorarioAtual { get; set; }
 
@@ -20,8 +20,4 @@ public class Atividade
     public int QntdProcura { get; set; }
 
     public long? IdCliente { get; set; }
-
-    public virtual ICollection<Compras> Compras { get; set; } = new List<Compras>();
-
-    public virtual Clientes? IdClienteNavigation { get; set; }
 }

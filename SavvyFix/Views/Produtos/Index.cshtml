@@ -8,25 +8,27 @@
     <div>
         @foreach (var item in Model)
         {
-        <div class="d-flex justify-content-center pt-5 text-center">
-            <div class="card d-flex justify-content-center" style="width: 18rem;">
-                <img src="https://images.tcdn.com.br/img/img_prod/1087795/all_star_tenis_ct0004_cano_alto_preto_3265_1_117da8caf7c6503cbd1950f6b5570e53.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">@Html.DisplayFor(modelItem => item.NmProd)</h5>
-                    <p class="card-text">@Html.DisplayFor(modelItem => item.DescProd)</p>
+            <div class="d-flex justify-content-center pt-5 text-center">
+                <div class="card d-flex justify-content-center" style="width: 18rem;">
+                    <img src="@Html.DisplayFor(modelItem => item.Img)" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">@Html.DisplayFor(modelItem => item.NmProd)</h5>
+                        <p class="card-text">@Html.DisplayFor(modelItem => item.DescProd)</p>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">@Html.DisplayFor(modelItem => item.MarcaProd)</li>
+                        <li class="list-group-item">@Html.DisplayFor(modelItem => item.PrecoFixo)</li>
+                    </ul>
+                    <div class="card-body">
+                        <a href="#" class="card-link">Comprar</a>
+                    </div>
                 </div>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">@Html.DisplayFor(modelItem => item.MarcaProd)</li>
-                    <li class="list-group-item">@Html.DisplayFor(modelItem => item.PrecoFixo)</li>
-                </ul>
-                <div class="card-body">
-                    <a href="#" class="card-link">Comprar</a>
-                </div>
-            </div>
 
-        </div>
+            </div>
         }
     </div>
+
+    <button type="button" class="btn btn-outline-primary" href="/Produtos/Adicionar" >Adicionar um produto</button>
     
 </div>    
     

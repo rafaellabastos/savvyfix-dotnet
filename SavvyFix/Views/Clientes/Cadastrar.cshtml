@@ -19,12 +19,36 @@
         <input type="password" class="form-control" asp-for="SenhaClie" id="SenhaClie" required>
         <input type="hidden" class="form-control" asp-for="SenhaClie" id="hiddenSenhaClie" required>
     </div>
+    <div class="mb-3">
+        <label class="form-label" for="CepEndereco">CEP:</label>
+        <input type="text" asp-for="CepEndereco" class="form-control" id="CepEndereco" required>
+    </div>
+    <div class="mb-3">
+        <label class="form-label" for="RuaEndereco">Rua:</label>
+        <input type="text" asp-for="RuaEndereco" class="form-control" id="RuaEndereco" required>
+    </div>
+    <div class="mb-3">
+        <label class="form-label" for="NumEndereco">Número:</label>
+        <input type="number" asp-for="NumEndereco" class="form-control" id="NumEndereco" required>
+    </div>
     <button type="submit" class="btn btn-primary">Cadastrar</button>
 </form>
 <script>
-    document.querySelector('form').addEventListener('submit', function() {
-        var senha = document.getElementById('senha').value;
-        document.getElementById('hiddenSenhaClie').value = senha;
-        console.log('SenhaClie:', senha);
-    });
+    document.getElementById('CepEndereco').oninput = function() {
+        var cepInput = this.value.replace(/\D/g, '');
+        if (cepInput.length !== 8) {
+            this.setCustomValidity('O CEP deve ter exatamente 8 números');
+        } else {
+            this.setCustomValidity('');
+        }
+    };
+    document.getElementById('cpf').oninput = function() {
+        var cpfInput = this.value.replace(/\D/g, '');
+        if (cpfInput.length !== 11) {
+            this.setCustomValidity('O CPF deve ter exatamente 11 números');
+        } else {
+            this.setCustomValidity('');
+        }
+    };
 </script>
+

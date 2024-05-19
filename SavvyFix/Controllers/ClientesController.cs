@@ -1,3 +1,5 @@
+using System.Security.Claims;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SavvyFix.Data;
@@ -19,21 +21,21 @@ public class ClientesController : Controller
         return View(await _context.Clientes.ToListAsync());
     }
     
-    public async Task<IActionResult> Cadastrados(int? id)
+    public async Task<IActionResult> Cadastrados(long? id)
     {
         if (id == null)
         {
             return NotFound();
         }
 
-        var boardgame = await _context.Clientes
+        var clientes = await _context.Clientes
             .FirstOrDefaultAsync(m => m.IdCliente == id);
-        if (boardgame == null)
+        if (clientes == null)
         {
             return NotFound();
         }
 
-        return View(boardgame);
+        return View(clientes);
     }
     
     public IActionResult Cadastrar()
@@ -43,7 +45,7 @@ public class ClientesController : Controller
     
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Cadastrar([Bind("CpfClie,NmClie,SenhaClie")]  Clientes clientes)
+    public async Task<IActionResult> Cadastrar([Bind("CpfClie,NmClie,SenhaClie,CepEndereco, RuaEndereco, NumEndereco")]  Clientes clientes)
     {
         Console.WriteLine($"CpfClie: {clientes.CpfClie}, NmClie: {clientes.NmClie}, SenhaClie: {clientes.SenhaClie}");
         if (ModelState.IsValid)
@@ -52,16 +54,14 @@ public class ClientesController : Controller
             {
                 _context.Add(clientes);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Index", "Home");
             }
             catch (Exception ex)
             {
-                // Log the exception
                 Console.WriteLine($"Exception: {ex.Message}");
             }
         }else
         {
-            // Log the model state errors
             foreach (var modelState in ModelState.Values)
             {
                 foreach (var error in modelState.Errors)
@@ -92,7 +92,4 @@ public class ClientesController : Controller
             return View("Login");
         }
     }
-
-    
-    
 }

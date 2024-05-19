@@ -15,4 +15,6 @@ public class Produtos
     public string DescProd { get; set; } = null!;
 
     public string NmProd { get; set; } = null!;
+    
+    public string Img { get; set; }
 }

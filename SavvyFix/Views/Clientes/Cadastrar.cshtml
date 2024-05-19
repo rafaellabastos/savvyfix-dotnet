@@ -1,22 +1,30 @@
-@model IEnumerable<Clientes>
+@model Clientes
 
 @{
     ViewData["Title"] = "Cadastro";
 }
 <h1>Cadastre-se Aqui!</h1>
-<form>
+<form asp-action="Cadastrar" asp-controller="Clientes" method="post">
     <div class="mb-3">
-        <label class="form-label">CPF: </label>
-        <input type="number" class="form-control" id="cpf" aria-describedby="cpf">
+        <label class="form-label" for="cpf">CPF: </label>
+        <input type="number" class="form-control" asp-for="CpfClie" id="cpf"  aria-describedby="cpf" required>
         <div id="cpfHelp" class="form-text">Digite apenas os números</div>
     </div>
     <div class="mb-3">
-        <label class="form-label">Password</label>
-        <input type="password" class="form-control" id="exampleInputPassword1">
+        <label class="form-label" for="nomeCliente">Nome:</label>
+        <input type="text" asp-for="NmClie" class="form-control" id="nomeCliente" required>
     </div>
-    <div class="mb-3 form-check">
-        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-        <label class="form-check-label" for="exampleCheck1">Check me out</label>
+    <div class="mb-3">
+        <label class="form-label" for="SenhaClie">Senha:</label>
+        <input type="password" class="form-control" asp-for="SenhaClie" id="SenhaClie" required>
+        <input type="hidden" class="form-control" asp-for="SenhaClie" id="hiddenSenhaClie" required>
     </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn btn-primary">Cadastrar</button>
 </form>
+<script>
+    document.querySelector('form').addEventListener('submit', function() {
+        var senha = document.getElementById('senha').value;
+        document.getElementById('hiddenSenhaClie').value = senha;
+        console.log('SenhaClie:', senha);
+    });
+</script>

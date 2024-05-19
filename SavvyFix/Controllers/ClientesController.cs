@@ -43,13 +43,32 @@ public class ClientesController : Controller
     
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Cadastrar([Bind("IdEndereco,CpfClie,NmClie,Senha")]  Clientes clientes)
+    public async Task<IActionResult> Cadastrar([Bind("CpfClie,NmClie,SenhaClie")]  Clientes clientes)
     {
+        Console.WriteLine($"CpfClie: {clientes.CpfClie}, NmClie: {clientes.NmClie}, SenhaClie: {clientes.SenhaClie}");
         if (ModelState.IsValid)
         {
-            _context.Add(clientes);
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            try
+            {
+                _context.Add(clientes);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            catch (Exception ex)
+            {
+                // Log the exception
+                Console.WriteLine($"Exception: {ex.Message}");
+            }
+        }else
+        {
+            // Log the model state errors
+            foreach (var modelState in ModelState.Values)
+            {
+                foreach (var error in modelState.Errors)
+                {
+                    Console.WriteLine($"ModelState Error: {error.ErrorMessage}");
+                }
+            }
         }
         return View(clientes);
     }

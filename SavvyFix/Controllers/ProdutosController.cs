@@ -52,7 +52,7 @@ public class ProdutosController : Controller
             {
                 _context.Add(produtos);
                 await _context.SaveChangesAsync();
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Index", "Produtos");
             }
             catch (Exception ex)
             {

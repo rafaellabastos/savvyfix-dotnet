@@ -72,6 +72,27 @@ public class ClientesController : Controller
         }
         return View(clientes);
     }
+
+    public IActionResult Login()
+    {
+        return View();
+    }
+    [HttpPost]
+    public async Task<IActionResult> Login(string cpf, string senha)
+    {
+        var cliente = await _context.Clientes.FirstOrDefaultAsync(c => c.CpfClie == cpf && c.SenhaClie == senha);
+
+        if (cliente != null)
+        {
+            return RedirectToAction("Index", "Home");
+        }
+        else
+        {
+            ViewBag.ErrorMessage = "Credenciais inválidas. Por favor, tente novamente.";
+            return View("Login");
+        }
+    }
+
     
     
 }

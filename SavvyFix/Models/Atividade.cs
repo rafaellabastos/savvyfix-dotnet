@@ -18,6 +18,4 @@ public class Atividade
     public decimal PrecoVariado { get; set; }
 
     public int QntdProcura { get; set; }
-
-    public long? IdCliente { get; set; }
 }

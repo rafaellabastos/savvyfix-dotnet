@@ -121,4 +121,42 @@ public class ProdutosController : Controller
     {
         return _context.Produtos.Any(e => e.IdProd == id);
     }
+    
+    public async Task<IActionResult> Excluir(long? id)
+    {
+        if (id == null)
+        {
+            return NotFound();
+        }
+    
+        var produtos = await _context.Produtos
+            .FirstOrDefaultAsync(m => m.IdProd == id);
+        if (produtos == null)
+        {
+            return NotFound();
+        }
+    
+        return View(produtos);
+    }
+    
+    [HttpPost]
+    public async Task<IActionResult> ExcluirConfirmado(long id)
+    {
+        if (id == 0)
+        {
+            return NotFound();
+        }
+        var produtos = await _context.Produtos.FindAsync(id);
+        if (produtos != null)
+        {
+            _context.Produtos.Remove(produtos);
+            await _context.SaveChangesAsync();
+        }
+        else
+        {
+            Console.WriteLine($"produto: {produtos} id: {id}");
+        }
+        return RedirectToAction("Index", "Produtos");
+    }
+    
 }

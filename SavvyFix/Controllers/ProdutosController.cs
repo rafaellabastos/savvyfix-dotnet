@@ -13,33 +13,26 @@ public class ProdutosController : Controller
     {
         _context = context;
     }
-    
+    /*
+     *  Buscar todos os produtos registrados no banco
+     */
     public async Task<IActionResult> Index()
     {
         return View(await _context.Produtos.ToListAsync());
     }
 
-    public async Task<IActionResult> Details(int? id)
-    {
-        if (id == null)
-        {
-            return NotFound();
-        }
-
-        var produtos = _context.Produtos.FirstOrDefault(m => m.IdProd == id);
-
-        if (produtos == null)
-        {
-            return NotFound();
-        }
-
-        return View(produtos);
-    }
-
+    /*
+     *  Tela para o método de adicionar produtos
+     */
+    
     public IActionResult Adicionar()
     {
         return View();
     }
+    
+    /*
+     *  Método POST para adicionar um novo produto ao banco  
+     */
     
     [HttpPost]
     [ValidateAntiForgeryToken]
@@ -70,6 +63,10 @@ public class ProdutosController : Controller
         return View(produtos);
     }
     
+    /*
+     *  Tela para editar produtos salvos
+     */
+    
     public async Task<IActionResult> Editar(long? id)
     {
         if (id == null)
@@ -84,6 +81,10 @@ public class ProdutosController : Controller
         }
         return View(produtos);
     }
+    
+    /*
+     *  Método UPDATE para editar produtos através de um POST
+     */
     
     [HttpPost]
     [ValidateAntiForgeryToken]
@@ -117,11 +118,18 @@ public class ProdutosController : Controller
         return View(produtos);
     }
     
+    /*
+     * Verificação de existência do produto pelo id passado pelo endpoint
+     */
+    
     private bool ProdutoExists(long id)
     {
         return _context.Produtos.Any(e => e.IdProd == id);
     }
     
+    /*
+     * Tela para excluir os produtos
+     */
     public async Task<IActionResult> Excluir(long? id)
     {
         if (id == null)
@@ -138,6 +146,10 @@ public class ProdutosController : Controller
     
         return View(produtos);
     }
+    
+    /*
+     * Método DELETE para excluir produto do banco 
+     */
     
     [HttpPost, ActionName("Excluir")]
     [ValidateAntiForgeryToken]

@@ -2,6 +2,10 @@ using System.ComponentModel.DataAnnotations;
 
 namespace SavvyFix.Models
 {
+    /*
+     * Entidade model para armazenar no banco de dados as informações dos usuários cadastrados
+     */
+    
     public class Clientes
     {
         [Key]

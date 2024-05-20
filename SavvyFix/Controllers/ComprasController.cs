@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using SavvyFix.Data;
 using SavvyFix.Models;
 
@@ -8,16 +9,23 @@ public class ComprasController : Controller
 {
     private readonly SavvyFixDbContext _context;
 
+    
     public ComprasController(SavvyFixDbContext context)
     {
         _context = context;
     }
     
-    public IActionResult Index()
+    /*
+     *  Buscar todas as compras registradas no banco
+     */
+    public async Task<IActionResult> Index()
     {
-        return View();
+        return View(await _context.Compra.ToListAsync());
     }
     
+    /*
+     *  Tela para o método de adicionar compras ao banco de dados
+     */
     public async Task<IActionResult> Comprar(long idProd, string nmProd)
     {
         var produto = await _context.Produtos.FindAsync(idProd);
@@ -38,6 +46,10 @@ public class ComprasController : Controller
         return View(compra);
     }
 
+    /*
+     *  Método POST para adicionar uma nova compra ao banco
+     */
+    
     [HttpPost]
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> Comprar(Compras compra)

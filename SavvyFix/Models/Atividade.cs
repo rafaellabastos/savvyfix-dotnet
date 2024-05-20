@@ -2,6 +2,10 @@ using System.ComponentModel.DataAnnotations;
 
 namespace SavvyFix.Models;
 
+/*
+ * Entidade model para armazenar no banco os dados de atividades na hora da compra
+ */
+
 public class Atividade
 {
     [Key]

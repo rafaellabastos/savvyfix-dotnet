@@ -24,6 +24,10 @@ public class AtividadeController : Controller
         return View();
     }
     
+    /*
+     *  Método POST para adicionar atividades na hora da compra
+     */
+    
     [HttpPost]
     public async Task<IActionResult> AddAtividade()
     {

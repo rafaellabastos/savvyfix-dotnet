@@ -16,6 +16,10 @@ public class ClientesController : Controller
         _context = context;
     }
     
+    /*
+     *  Tela para o método de buscar clientes pelo cpf
+     */
+    
     public async Task<IActionResult> Index(string cpf)
     {
         var cliente = await _context.Clientes.FirstOrDefaultAsync(c => c.CpfClie == cpf);
@@ -36,6 +40,10 @@ public class ClientesController : Controller
         return View(usuario);
     }
     
+    /*
+     *  Tela para o método de cadastar novos clientes pelo id pelo GET
+     */
+    
     public async Task<IActionResult> Cadastrados(long? id)
     {
         if (id == null)
@@ -53,10 +61,18 @@ public class ClientesController : Controller
         return View(clientes);
     }
     
+    /*
+     *  Tela para o método de cadastrar clientes
+     */
+    
     public IActionResult Cadastrar()
     {
         return View();
     }
+    
+    /*
+     *  Método POST para cadastrar novos clientes ao banco
+     */
     
     [HttpPost]
     [ValidateAntiForgeryToken]
@@ -87,10 +103,19 @@ public class ClientesController : Controller
         return View(clientes);
     }
 
+    /*
+     *  Tela para o método de login 
+     */
+    
     public IActionResult Login()
     {
         return View();
     }
+    
+    /*
+     * Método POST para validar clientes registrados no banco
+     */
+    
     [HttpPost]
     public async Task<IActionResult> Login(string cpf, string senha)
     {
@@ -107,6 +132,10 @@ public class ClientesController : Controller
         }
     }
     
+    /*
+     *  Método GET para buscar o cliente pelo id
+     */
+    
     public async Task<IActionResult> Editar(long? id)
     {
         if (id == null)
@@ -121,6 +150,10 @@ public class ClientesController : Controller
         }
         return View(cliente);
     }
+    
+    /*
+     *  Método UPDATE para editar produtos através de um POST
+     */
     
     [HttpPost]
     [ValidateAntiForgeryToken]
@@ -140,7 +173,7 @@ public class ClientesController : Controller
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!ProdutoExists(clientes.IdCliente))
+                if (!ClienteExists(clientes.IdCliente))
                 {
                     return NotFound();
                 }
@@ -154,11 +187,18 @@ public class ClientesController : Controller
         return View(clientes);
     }
     
-    private bool ProdutoExists(long id)
+    /*
+     *  Verificar se o cliente existe pelo id passado no endpoint 
+     */
+    
+    private bool ClienteExists(long id)
     {
         return _context.Clientes.Any(e => e.IdCliente == id);
     }
     
+    /*
+     *  Tela para o método de excluir cadastro usando GET pelo id
+     */
     
     public async Task<IActionResult> Excluir(long? id)
     {
@@ -176,6 +216,10 @@ public class ClientesController : Controller
     
         return View(clientes);
     }
+    
+    /*
+     * Método DELETE para excluir cadastros
+     */
     
     [HttpPost, ActionName("Excluir")]
     [ValidateAntiForgeryToken]

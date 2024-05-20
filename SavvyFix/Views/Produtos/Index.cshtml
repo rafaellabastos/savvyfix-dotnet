@@ -1,13 +1,14 @@
 @model IEnumerable<Produtos>
+
 @{
     ViewData["Title"] = "Produtos";
 }
 <div>
     <h1 class="d-flex justify-content-center display-4 pt-4">Produtos</h1>
-
     <a href="/Produtos/Adicionar" class="btn btn-outline-primary">Adicionar um produto</a>
 
     <div>
+        <!-- Busca dos produtos -->
         @foreach (var item in Model)
         {
             <div class="d-flex justify-content-center pt-5 text-center">
@@ -25,7 +26,7 @@
                         <a href="@Url.Action("Comprar", "Compras", new { idProd = item.IdProd, nmProd = item.NmProd })" class="btn btn-outline-primary">Comprar</a>
                         <a asp-action="Editar" asp-route-id="@item.IdProd" class="btn btn-outline-warning">Editar</a>
                         <a asp-action="Excluir" asp-route-id="@item.IdProd" class="btn btn-outline-danger">Excluir</a>
-                        
+
                     </div>
                 </div>
 

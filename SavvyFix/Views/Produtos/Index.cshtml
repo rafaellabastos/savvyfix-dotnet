@@ -15,11 +15,11 @@
                     <img src="@Html.DisplayFor(modelItem => item.Img)" class="card-img-top border border-secondary" alt="...">
                     <div class="card-body border border-secondary">
                         <h5 class="card-title">@Html.DisplayFor(modelItem => item.NmProd)</h5>
-                        <p class="card-text">@Html.DisplayFor(modelItem => item.DescProd)</p>
+                        <p class="card-text ">@Html.DisplayFor(modelItem => item.DescProd)</p>
                     </div>
                     <ul class="list-group list-group-flush border border-secondary">
                         <li class="list-group-item">@Html.DisplayFor(modelItem => item.MarcaProd)</li>
-                        <li class="list-group-item">@Html.DisplayFor(modelItem => item.PrecoFixo)</li>
+                        <li class="list-group-item border-top border-secondary">@Html.DisplayFor(modelItem => item.PrecoFixo)</li>
                     </ul>
                     <div class="card-body border border-secondary rounded-bottom">
                         <a href="@Url.Action("Comprar", "Compras", new { idProd = item.IdProd, nmProd = item.NmProd })" class="btn btn-outline-primary">Comprar</a>

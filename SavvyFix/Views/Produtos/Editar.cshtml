@@ -3,29 +3,30 @@
 @{
     ViewData["Title"] = "Editar Produto";
 }
-<h1>Editar Produto</h1>
-<form asp-action="Editar" asp-controller="Produtos" method="post">
+<h1 class="display-5 text-center pb-4 pt-2">Editar Produto</h1>
+<form class="card-body mx-auto" style="width: 40rem;" asp-action="Editar" asp-controller="Produtos" method="post">
     <div class="mb-3">
-        <label class="form-label" for="nome">Nome: </label>
+        <label class="form-label font-monospace" for="nome">Nome: </label>
         <input type="text" class="form-control" asp-for="NmProd" id="nome" required>
     </div>
     <div class="mb-3">
-        <label class="form-label" for="marca">Marca:</label>
-        <input type="text" asp-for="MarcaProd" class="form-control" id="marca" required>
+        <label class="form-label font-monospace" for="marca">Marca:</label>
+        <input type="text" asp-for="MarcaProd" class="form-control border border-secondary" id="marca" required>
     </div>
     <div class="mb-3">
-        <label class="form-label" for="descricao">Descrição:</label>
-        <input type="text" asp-for="DescProd" class="form-control" id="descricao" required>
+        <label class="form-label font-monospace" for="descricao">Descrição:</label>
+        <input type="text" asp-for="DescProd" class="form-control border border-secondary" id="descricao" required>
     </div>
     <div class="mb-3">
-        <label class="form-label" for="preco">Preco:</label>
-        <input type="number" class="form-control" asp-for="PrecoFixo" id="preco" step="0.01" required>
+        <label class="form-label font-monospace" for="preco">Preco:</label>
+        <input type="number" class="form-control border border-secondary" asp-for="PrecoFixo" id="preco" step="0.01" required>
     </div>
     <div class="mb-3">
-        <label class="form-label" for="img">Endereco da imagem:</label>
-        <input type="text" asp-for="Img" class="form-control" id="img" required>
+        <label class="form-label font-monospace" for="img">Endereco da imagem:</label>
+        <input type="text" asp-for="Img" class="form-control border border-secondary" id="img" required>
         <div id="imgHelp" class="form-text">Digite o endereço https de uma imagem</div>
     </div>
     <input type="hidden" asp-for="IdProd" />
     <button type="submit" class="btn btn-primary">Editar</button>
+    <a asp-controller="Produtos" asp-action="Index" class="btn btn-danger">Voltar</a>
 </form>

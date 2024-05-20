@@ -3,35 +3,36 @@
 @{
     ViewData["Title"] = "Cadastro";
 }
-<h1>Cadastre-se Aqui!</h1>
-<form asp-action="Cadastrar" asp-controller="Clientes" method="post">
+<h1 class="display-5 text-center pb-4 pt-3" >Cadastre-se Aqui!</h1>
+<form class="card-body mx-auto" style="width: 40rem;" asp-action="Cadastrar" asp-controller="Clientes" method="post">
     <div class="mb-3">
         <label class="form-label" for="cpf">CPF: </label>
-        <input type="number" class="form-control" asp-for="CpfClie" id="cpf"  aria-describedby="cpf" required>
+        <input type="number" class="form-control border border-secondary" asp-for="CpfClie" id="cpf"  aria-describedby="cpf" required>
         <div id="cpfHelp" class="form-text">Digite apenas os números</div>
     </div>
     <div class="mb-3">
-        <label class="form-label" for="nomeCliente">Nome:</label>
-        <input type="text" asp-for="NmClie" class="form-control" id="nomeCliente" required>
+        <label class="form-label font-monospace" for="nomeCliente">Nome:</label>
+        <input type="text" asp-for="NmClie" class="form-control border border-secondary" id="nomeCliente" required>
     </div>
     <div class="mb-3">
-        <label class="form-label" for="SenhaClie">Senha:</label>
-        <input type="password" class="form-control" asp-for="SenhaClie" id="SenhaClie" required>
+        <label class="form-label font-monospace" for="SenhaClie">Senha:</label>
+        <input type="password" class="form-control border border-secondary" asp-for="SenhaClie" id="SenhaClie" required>
         <input type="hidden" class="form-control" asp-for="SenhaClie" id="hiddenSenhaClie" required>
     </div>
     <div class="mb-3">
-        <label class="form-label" for="CepEndereco">CEP:</label>
-        <input type="text" asp-for="CepEndereco" class="form-control" id="CepEndereco" required>
+        <label class="form-label font-monospace" for="CepEndereco">CEP:</label>
+        <input type="text" asp-for="CepEndereco" class="form-control border border-secondary" id="CepEndereco" required>
     </div>
     <div class="mb-3">
-        <label class="form-label" for="RuaEndereco">Rua:</label>
-        <input type="text" asp-for="RuaEndereco" class="form-control" id="RuaEndereco" required>
+        <label class="form-label font-monospace" for="RuaEndereco">Rua:</label>
+        <input type="text" asp-for="RuaEndereco" class="form-control border border-secondary" id="RuaEndereco" required>
     </div>
     <div class="mb-3">
-        <label class="form-label" for="NumEndereco">Número:</label>
-        <input type="number" asp-for="NumEndereco" class="form-control" id="NumEndereco" required>
+        <label class="form-label font-monospace" for="NumEndereco">Número:</label>
+        <input type="number" asp-for="NumEndereco" class="form-control border border-secondary" id="NumEndereco" required>
     </div>
     <button type="submit" class="btn btn-primary">Cadastrar</button>
+    <a asp-controller="Home" asp-action="Index" class="btn btn-danger">Voltar</a>
 </form>
 <script>
     document.getElementById('CepEndereco').oninput = function() {

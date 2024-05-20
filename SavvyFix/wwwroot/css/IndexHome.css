@@ -1,7 +1,8 @@
 h1 {
     color: #333;
     font-size: 45px;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
+    padding-top: 40px;
     text-align: center;
     text-decoration-line: underline;
 }
@@ -9,10 +10,11 @@ h1 {
 .text {
     color: white;
     font-size: 22px;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
     text-align: center;
     background-color: darkseagreen;
     border-radius: 5px;
+    border-color: #1a1e21;
 }
 
 .btn:hover {

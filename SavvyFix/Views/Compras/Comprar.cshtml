@@ -1,26 +1,27 @@
 @model SavvyFix.Models.Compras
 
-<h2>Confirmar Compra</h2>
+<h2 class="display-5 text-center pb-4">Confirmar Compra</h2>
 
-<form asp-action="Comprar" method="post">
-    <div class="form-group">
-        <label asp-for="IdProd" class="control-label"></label>
-        <input asp-for="IdProd" class="form-control" readonly />
+<form class="card-body mx-auto" style="width: 40rem;" asp-action="Comprar" method="post">
+    <div class="mb-3">
+        <label asp-for="IdProd" class="control-label font-monospace">Id:</label>
+        <input asp-for="IdProd" class="form-control border border-secondary" readonly />
     </div>
-    <div class="form-group">
-        <label asp-for="NmProd" class="control-label"></label>
-        <input asp-for="NmProd" class="form-control" readonly />
+    <div class="mb-3">
+        <label asp-for="NmProd" class="control-label font-monospace">Nome:</label>
+        <input asp-for="NmProd" class="form-control border border-secondary" readonly />
     </div>
-    <div class="form-group">
-        <label asp-for="QntdProd" class="control-label"></label>
-        <input asp-for="QntdProd" class="form-control" />
+    <div class="mb-3">
+        <label asp-for="QntdProd" class="control-label font-monospace">Quantidade:</label>
+        <input asp-for="QntdProd" class="form-control border border-secondary" />
         <span asp-validation-for="QntdProd" class="text-danger"></span>
     </div>
-    <div class="form-group">
-        <label asp-for="ValorCompra" class="control-label"></label>
-        <input asp-for="ValorCompra" class="form-control" readonly />
+    <div class="mb-3">
+        <label asp-for="ValorCompra" class="control-label font-monospace">Valor:</label>
+        <input asp-for="ValorCompra" class="form-control border border-secondary" readonly />
     </div>
-    <div class="form-group">
+    <div class="mb-3">
         <input type="submit" value="Confirmar Compra" class="btn btn-primary" onclick="return confirm('Tem certeza?')"/>
+        <a asp-controller="Produtos" asp-action="Index" class="btn btn-danger">Voltar</a>
     </div>
 </form>

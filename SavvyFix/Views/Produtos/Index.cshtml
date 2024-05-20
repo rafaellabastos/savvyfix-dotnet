@@ -23,7 +23,7 @@
                     </ul>
                     <div class="card-body">
                         <a href="@Url.Action("Comprar", "Compras", new { idProd = item.IdProd, nmProd = item.NmProd })" class="btn btn-outline-primary">Comprar</a>
-                        <a asp-action="Editar" asp-route-id="@item.IdProd">Editar</a>
+                        <a asp-action="Editar" asp-route-id="@item.IdProd" class="btn btn-outline-warning">Editar</a>
                     </div>
                 </div>
 

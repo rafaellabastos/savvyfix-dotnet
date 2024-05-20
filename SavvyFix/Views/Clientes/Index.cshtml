@@ -1,5 +1,25 @@
-@model IEnumerable<Clientes>
+@model Clientes
 
 @{
     ViewData["Title"] = "Clientes";
 }
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">ID</th>
+        <th scope="col">CPF</th>
+        <th scope="col">Nome</th>
+        <th scope="col">CEP</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <th scope="row">@Html.DisplayFor(model => model.IdCliente)</th>
+        <td>@Html.DisplayFor(model => model.CpfClie)</td>
+        <td>@Html.DisplayFor(model => model.NmClie)</td>
+        <td>@Html.DisplayFor(model => model.CepEndereco)</td>
+    </tr>
+    </tbody>
+</table>
+
+<a asp-controller="Home" asp-action="Index" class="btn btn-primary">Voltar</a>

@@ -16,9 +16,24 @@ public class ClientesController : Controller
         _context = context;
     }
     
-    public async Task<IActionResult> Index()
+    public async Task<IActionResult> Index(string cpf)
     {
-        return View(await _context.Clientes.ToListAsync());
+        var cliente = await _context.Clientes.FirstOrDefaultAsync(c => c.CpfClie == cpf);
+        
+        if (cliente == null)
+        {
+            return NotFound();
+        }
+
+        var usuario = new Clientes()
+        {
+            IdCliente = cliente.IdCliente,
+            CpfClie = cliente.CpfClie,
+            NmClie = cliente.NmClie,
+            CepEndereco = cliente.CepEndereco
+        };
+        
+        return View(usuario);
     }
     
     public async Task<IActionResult> Cadastrados(long? id)
@@ -47,7 +62,6 @@ public class ClientesController : Controller
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> Cadastrar([Bind("CpfClie,NmClie,SenhaClie,CepEndereco, RuaEndereco, NumEndereco")]  Clientes clientes)
     {
-        Console.WriteLine($"CpfClie: {clientes.CpfClie}, NmClie: {clientes.NmClie}, SenhaClie: {clientes.SenhaClie}");
         if (ModelState.IsValid)
         {
             try
@@ -84,7 +98,7 @@ public class ClientesController : Controller
 
         if (cliente != null)
         {
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "Clientes", new {cpf = cliente.CpfClie});
         }
         else
         {

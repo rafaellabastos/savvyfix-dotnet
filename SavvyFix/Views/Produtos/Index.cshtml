@@ -5,6 +5,8 @@
 <div>
     <h1 class="d-flex justify-content-center">Produtos</h1>
 
+    <a href="/Produtos/Adicionar" class="btn btn-outline-primary">Adicionar um produto</a>
+
     <div>
         @foreach (var item in Model)
         {
@@ -21,14 +23,13 @@
                     </ul>
                     <div class="card-body">
                         <a href="#" class="card-link">Comprar</a>
+                        <a asp-action="Editar" asp-route-id="@item.IdProd">Editar</a>
                     </div>
                 </div>
 
             </div>
         }
     </div>
-
-    <a href="/Produtos/Adicionar" class="btn btn-outline-primary">Adicionar um produto</a>
     
 </div>    
     

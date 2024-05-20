@@ -70,4 +70,56 @@ public class ProdutosController : Controller
         }
         return View(produtos);
     }
+    
+    public async Task<IActionResult> Editar(long? id)
+    {
+        if (id == null)
+        {
+            return NotFound();
+        }
+
+        var produtos = await _context.Produtos.FindAsync(id);
+        if (produtos == null)
+        {
+            return NotFound();
+        }
+        return View(produtos);
+    }
+    
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> Editar(int id, [Bind("IdProd, NmProd, PrecoFixo, MarcaProd, DescProd, Img")] Produtos produtos)
+    {
+        if (id != produtos.IdProd)
+        {
+            return NotFound();
+        }
+
+        if (ModelState.IsValid)
+        {
+            try
+            {
+                _context.Update(produtos);
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!ProdutoExists(produtos.IdProd))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+            return RedirectToAction(nameof(Index));
+        }
+        return View(produtos);
+    }
+    
+    private bool ProdutoExists(long id)
+    {
+        return _context.Produtos.Any(e => e.IdProd == id);
+    }
 }

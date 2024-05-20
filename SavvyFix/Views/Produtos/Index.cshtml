@@ -22,7 +22,7 @@
                         <li class="list-group-item">@Html.DisplayFor(modelItem => item.PrecoFixo)</li>
                     </ul>
                     <div class="card-body">
-                        <a href="#" class="card-link">Comprar</a>
+                        <a href="@Url.Action("Comprar", "Compras", new { idProd = item.IdProd, nmProd = item.NmProd })" class="btn btn-outline-primary">Comprar</a>
                         <a asp-action="Editar" asp-route-id="@item.IdProd">Editar</a>
                     </div>
                 </div>

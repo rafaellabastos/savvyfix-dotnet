@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SavvyFix")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d740ae16c63f3503f53bc0b13e03440862b15266")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5bffef2d95f53a0dbc8a9c84613e7072120afb61")]
 [assembly: System.Reflection.AssemblyProductAttribute("SavvyFix")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SavvyFix")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

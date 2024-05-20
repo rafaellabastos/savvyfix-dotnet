@@ -106,4 +106,56 @@ public class ClientesController : Controller
             return View("Login");
         }
     }
+    
+    public async Task<IActionResult> Editar(long? id)
+    {
+        if (id == null)
+        {
+            return NotFound();
+        }
+
+        var cliente = await _context.Clientes.FindAsync(id);
+        if (cliente == null)
+        {
+            return NotFound();
+        }
+        return View(cliente);
+    }
+    
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> Editar(int id, [Bind("IdCliente, CpfClie, NmClie, SenhaClie, CepEndereco, RuaEndereco, NumEndereco")] Clientes clientes)
+    {
+        if (id != clientes.IdCliente)
+        {
+            return NotFound();
+        }
+
+        if (ModelState.IsValid)
+        {
+            try
+            {
+                _context.Update(clientes);
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!ProdutoExists(clientes.IdCliente))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+            return RedirectToAction("Login", "Clientes");
+        }
+        return View(clientes);
+    }
+    
+    private bool ProdutoExists(long id)
+    {
+        return _context.Clientes.Any(e => e.IdCliente == id);
+    }
 }

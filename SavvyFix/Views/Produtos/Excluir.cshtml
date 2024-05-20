@@ -7,23 +7,23 @@
 <form asp-action="ExcluirConfirmado" asp-controller="Produtos" method="post">
     <div class="mb-3">
         <label class="form-label" for="nome">Nome: </label>
-        <input type="text" class="form-control" asp-for="NmProd" id="nome" required>
+        <input type="text" class="form-control" asp-for="NmProd" id="nome" readonly>
     </div>
     <div class="mb-3">
         <label class="form-label" for="marca">Marca:</label>
-        <input type="text" asp-for="MarcaProd" class="form-control" id="marca" required>
+        <input type="text" asp-for="MarcaProd" class="form-control" id="marca" readonly>
     </div>
     <div class="mb-3">
         <label class="form-label" for="descricao">Descrição:</label>
-        <input type="text" asp-for="DescProd" class="form-control" id="descricao" required>
+        <input type="text" asp-for="DescProd" class="form-control" id="descricao" readonly>
     </div>
     <div class="mb-3">
         <label class="form-label" for="preco">Preco:</label>
-        <input type="number" class="form-control" asp-for="PrecoFixo" id="preco" step="0.01" required>
+        <input type="number" class="form-control" asp-for="PrecoFixo" id="preco" step="0.01" readonly>
     </div>
     <div class="mb-3">
         <label class="form-label" for="img">Endereco da imagem:</label>
-        <input type="text" asp-for="Img" class="form-control" id="img" required>
+        <input type="text" asp-for="Img" class="form-control" id="img" readonly>
         <div id="imgHelp" class="form-text">Digite o endereço https de uma imagem</div>
     </div>
     <input type="hidden" asp-for="IdProd" />

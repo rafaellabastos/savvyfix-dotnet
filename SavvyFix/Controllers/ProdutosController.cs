@@ -140,6 +140,7 @@ public class ProdutosController : Controller
     }
     
     [HttpPost]
+    [ValidateAntiForgeryToken]
     public async Task<IActionResult> ExcluirConfirmado(long id)
     {
         if (id == 0)

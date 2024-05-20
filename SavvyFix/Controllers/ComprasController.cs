@@ -54,7 +54,7 @@ public class ComprasController : Controller
         {
             _context.Add(compra);
             await _context.SaveChangesAsync();
-            return RedirectToAction("Index", "Produtos");
+            return RedirectToAction("Index", "Atividade");
         }
 
         return View(compra);

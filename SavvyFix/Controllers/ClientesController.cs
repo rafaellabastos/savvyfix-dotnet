@@ -68,7 +68,7 @@ public class ClientesController : Controller
             {
                 _context.Add(clientes);
                 await _context.SaveChangesAsync();
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Login", "Clientes");
             }
             catch (Exception ex)
             {

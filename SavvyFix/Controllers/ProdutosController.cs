@@ -45,7 +45,6 @@ public class ProdutosController : Controller
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> Adicionar([Bind("NmProd, PrecoFixo, MarcaProd, DescProd, Img" )]  Produtos produtos)
     {
-        //Console.WriteLine($"CpfClie: {clientes.CpfClie}, NmClie: {clientes.NmClie}, SenhaClie: {clientes.SenhaClie}");
         if (ModelState.IsValid)
         {
             try

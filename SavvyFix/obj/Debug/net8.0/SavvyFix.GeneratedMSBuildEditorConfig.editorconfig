@@ -26,6 +26,10 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\User\Documents\FIAP\.NET_CHALLENGE\savvyfix-dotnet\SavvyFix
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/User/Documents/FIAP/.NET_CHALLENGE/savvyfix-dotnet/SavvyFix/Views/Atividade/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXRpdmlkYWRlXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/User/Documents/FIAP/.NET_CHALLENGE/savvyfix-dotnet/SavvyFix/Views/Clientes/Cadastrar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZXNcQ2FkYXN0cmFyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 

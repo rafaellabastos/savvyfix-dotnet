@@ -71,6 +71,116 @@ public class ComprasController : Controller
 
         return View(compra);
     }
+    
+    /*
+     *  Tela para editar a compra no histórico salva
+     */
+    
+    public async Task<IActionResult> Editar(long? id)
+    {
+        if (id == null)
+        {
+            return NotFound();
+        }
+
+        var compras = await _context.Compra.FindAsync(id);
+        if (compras == null)
+        {
+            return NotFound();
+        }
+        return View(compras);
+    }
+    
+    /*
+     *  Método UPDATE para editar o histórico de compras através de um POST
+     */
+    
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> Editar(int id, [Bind("IdCompra, NmProd, QntdProd, ValorCompra")] Compras compras)
+    {
+        if (id != compras.IdCompra)
+        {
+            return NotFound();
+        }
+
+        if (ModelState.IsValid)
+        {
+            try
+            {
+                _context.Update(compras);
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!CompraExists(compras.IdCompra))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+            return RedirectToAction(nameof(Index));
+        }
+        return View(compras);
+    }
+    
+    /*
+     * Verificação de existência da compra pelo id passado pelo endpoint
+     */
+    
+    private bool CompraExists(long id)
+    {
+        return _context.Compra.Any(e => e.IdCompra == id);
+    }
+    
+    /*
+     * Tela para excluir os históricos de compras
+     */
+    public async Task<IActionResult> Excluir(long? id)
+    {
+        if (id == null)
+        {
+            return NotFound();
+        }
+    
+        var compras = await _context.Compra
+            .FirstOrDefaultAsync(m => m.IdCompra == id);
+        if (compras == null)
+        {
+            return NotFound();
+        }
+    
+        return View(compras);
+    }
+    
+    /*
+     * Método DELETE para excluir histórico do banco de dados
+     */
+    
+    [HttpPost, ActionName("Excluir")]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> ExcluirConfirmado(long id)
+    {
+        if (id == 0)
+        {
+            return NotFound();
+        }
+        var compras = await _context.Compra.FindAsync(id);
+        if (compras != null)
+        {
+            _context.Compra.Remove(compras);
+            await _context.SaveChangesAsync();
+        }
+        else
+        {
+            Console.WriteLine($"produto: {compras} id: {id}");
+        }
+        return RedirectToAction("Index", "Compras");
+    }
+    
 }
     
     

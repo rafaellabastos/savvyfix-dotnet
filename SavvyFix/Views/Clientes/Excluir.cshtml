@@ -1,0 +1,54 @@
+@model Clientes
+
+@{
+ViewData["Title"] = "Excluir Usuário";
+}
+<h1 class="display-5 text-center pb-4 pt-3" >Excluir Usuário</h1>
+<form class="card-body mx-auto" style="width: 40rem;" asp-action="Excluir" asp-controller="Clientes" method="post">
+    <div class="mb-3">
+        <label class="form-label" for="cpf">CPF: </label>
+        <input type="number" class="form-control border border-secondary" asp-for="CpfClie" id="cpf"  aria-describedby="cpf" readonly>
+    </div>
+    <div class="mb-3">
+        <label class="form-label font-monospace" for="nomeCliente">Nome:</label>
+        <input type="text" asp-for="NmClie" class="form-control border border-secondary" id="nomeCliente" readonly>
+    </div>
+    <div class="mb-3">
+        <label class="form-label font-monospace" for="SenhaClie">Senha:</label>
+        <input type="password" class="form-control border border-secondary" asp-for="SenhaClie" id="SenhaClie" readonly>
+        <input type="hidden" class="form-control" asp-for="SenhaClie" id="hiddenSenhaClie" required>
+    </div>
+    <div class="mb-3">
+        <label class="form-label font-monospace" for="CepEndereco">CEP:</label>
+        <input type="text" asp-for="CepEndereco" class="form-control border border-secondary" id="CepEndereco" readonly>
+    </div>
+    <div class="mb-3">
+        <label class="form-label font-monospace" for="RuaEndereco">Rua:</label>
+        <input type="text" asp-for="RuaEndereco" class="form-control border border-secondary" id="RuaEndereco" readonly>
+    </div>
+    <div class="mb-3">
+        <label class="form-label font-monospace" for="NumEndereco">Número:</label>
+        <input type="number" asp-for="NumEndereco" class="form-control border border-secondary" id="NumEndereco" readonly>
+    </div>
+    <input type="hidden" asp-for="IdCliente" />
+    <button type="submit" class="btn btn-primary">Excluir</button>
+    <a asp-controller="Home" asp-action="Index" class="btn btn-danger">Voltar</a>
+</form>
+<script>
+    document.getElementById('CepEndereco').oninput = function() {
+        var cepInput = this.value.replace(/\D/g, '');
+        if (cepInput.length !== 8) {
+            this.setCustomValidity('O CEP deve ter exatamente 8 números');
+        } else {
+            this.setCustomValidity('');
+        }
+    };
+    document.getElementById('cpf').oninput = function() {
+        var cpfInput = this.value.replace(/\D/g, '');
+        if (cpfInput.length !== 11) {
+            this.setCustomValidity('O CPF deve ter exatamente 11 números');
+        } else {
+            this.setCustomValidity('');
+        }
+    };
+</script>

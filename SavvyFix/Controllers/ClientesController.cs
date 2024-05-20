@@ -158,4 +158,43 @@ public class ClientesController : Controller
     {
         return _context.Clientes.Any(e => e.IdCliente == id);
     }
+    
+    
+    public async Task<IActionResult> Excluir(long? id)
+    {
+        if (id == null)
+        {
+            return NotFound();
+        }
+    
+        var clientes = await _context.Clientes
+            .FirstOrDefaultAsync(m => m.IdCliente == id);
+        if (clientes == null)
+        {
+            return NotFound();
+        }
+    
+        return View(clientes);
+    }
+    
+    [HttpPost, ActionName("Excluir")]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> ExcluirConfirmado(long id)
+    {
+        if (id == 0)
+        {
+            return NotFound();
+        }
+        var clientes = await _context.Clientes.FindAsync(id);
+        if (clientes != null)
+        {
+            _context.Clientes.Remove(clientes);
+            await _context.SaveChangesAsync();
+        }
+        else
+        {
+            Console.WriteLine($"produto: {clientes} id: {id}");
+        }
+        return RedirectToAction("Index", "Home");
+    }
 }

@@ -139,7 +139,7 @@ public class ProdutosController : Controller
         return View(produtos);
     }
     
-    [HttpPost]
+    [HttpPost, ActionName("Excluir")]
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> ExcluirConfirmado(long id)
     {

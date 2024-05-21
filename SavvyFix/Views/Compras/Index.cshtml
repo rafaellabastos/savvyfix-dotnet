@@ -2,17 +2,17 @@
 @{
     ViewData["Title"] = "Compras";
 }
-
+<h1 class="display-5 text-center pb-5 pt-4">Histórico de Compras da SavvyFix</h1>
 @foreach (var item in Model)
 {
-    <table  class="table table-bordered table-hover table-custom mx-auto pt-4 border border-secondary" style="width: 70rem">
+    <table  class="table table-bordered table-hover table-custom mx-auto pt-4 border border-secondary text-center">
         <thead>
         <tr>
-            <th scope="col">ID</th>
-            <th scope="col">Produto</th>
-            <th scope="col">Quantidade</th>
-            <th scope="col">Valor</th>
-            <th scope="col">Alterar</th>
+            <th scope="col" style="width: 40px">ID</th>
+            <th scope="col" style="width: 25rem">Produto</th>
+            <th scope="col" style="width: 10rem">Quantidade</th>
+            <th scope="col" style="width: 10rem">Valor</th>
+            <th scope="col" style="width: 25rem">Alterar</th>
             
         </tr>
         </thead>

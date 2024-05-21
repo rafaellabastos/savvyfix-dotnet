@@ -14,7 +14,7 @@ public class AtividadeController : Controller
     }
 
     /*
-     *  Esse método é apenas para ser um exemplo, a resposta ideal deve ser buscada do cliente de forma
+     *  Esse controller é apenas para ser um exemplo, a resposta ideal deve ser buscada do cliente de forma
      * automática ao realizar uma compra e utilizar esses dados em uma IA para fornecer uma precificação
      * variada de acordo com as ações dos clientes.
      */
@@ -44,6 +44,6 @@ public class AtividadeController : Controller
         _context.Add(atividades);
         await _context.SaveChangesAsync();
         
-        return RedirectToAction("Index", "Home");
+        return RedirectToAction("Index", "Compras");
     }
 }

@@ -30,3 +30,14 @@ ViewData["Title"] = "Editar Compras";
         <a asp-controller="Compras" asp-action="Index" class="btn btn-danger">Voltar</a>
     </div>
 </form>
+
+<script>
+    document.getElementById('QntdProd').addEventListener('input', function (event) {
+        var value = event.target.value;
+        if (value !== '' && (!Number.isInteger(Number(value)) || value <= 0)) {
+            event.target.setCustomValidity('A quantidade deve ser um número inteiro positivo.');
+        } else {
+            event.target.setCustomValidity('');
+        }
+    });
+</script>

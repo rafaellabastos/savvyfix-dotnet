@@ -39,29 +39,29 @@
 2. Trello
 
 ## Descrição das funcionalidades
-Para entender o funcionamento do projeto devemos seguir alguns passos:
+ Para entender o funcionamento do projeto devemos seguir alguns passos:
 
 ### 1 - Cadastro
-Para começar devemos fazer um cadastro para criar um novo usuário no sistema, para realizar basta ir em "Usuários" e depois "Cadastro", podendo editar e excluir caso necessário.
+ Para começar devemos fazer um cadastro para criar um novo usuário no sistema, para realizar basta ir em "Usuários" e depois "Cadastro", podendo editar e excluir caso necessário.
 
 ### 2 - Login
-Após o cadastro é necessário realizar o login localizado em "Usuários" e depois "Login" e informar o CPF e senha válidos cadastrados anteriormente.
+ Após o cadastro é necessário realizar o login localizado em "Usuários" e depois "Login" e informar o CPF e senha válidos cadastrados anteriormente.
 
 ### 3 - Produtos
-Ao clicar no botão "Ver" em Ver Produtos o usuário será levado para uma página em que os produtos podem ser adicionados, alterados e comprados.
+ Ao clicar no botão "Ver" em Ver Produtos o usuário será levado para uma página em que os produtos podem ser adicionados, alterados e comprados.
 
 ### 4 - Comprar
-Após clicar em comprar o usuário será direcionado para uma tela em que poderá selecionar a quantidade de produtos e o valor será alterado automaticamente.
+ Após clicar em comprar o usuário será direcionado para uma tela em que poderá selecionar a quantidade de produtos e o valor será alterado automaticamente.
 
 ### 5 - Atividades do Usuário
-Após realizar a compra o usuário vai confirmar a compra e os dados do momento da compra será armazenado para criar uma precificação baseada nas escolhas e ações dos usuários.
+ Após realizar a compra o usuário vai confirmar a compra e os dados do momento da compra será armazenado para criar uma precificação baseada nas escolhas e ações dos usuários.
 (A busca pelos dados não é completamente funcional e será adicionado nas próximas sprints com o avanço e melhora dos projetos).
 
 ### 6 - Histórico de Compras
-Depois da compra ser realizada será possível ver o histórico de compras do projeto e fazer alterações como excluir e editar.
+ Depois da compra ser realizada será possível ver o histórico de compras do projeto e fazer alterações como excluir e editar.
 
 ### 7 - Sobre a SavvyFix
-Para entender mais sobre a SavvyFix foi adicionado um link no rodapé para mostrar sobre o projeto e seus participantes.
+ Para entender mais sobre a SavvyFix foi adicionado um link no rodapé para mostrar sobre o projeto e seus participantes.
 
 
 

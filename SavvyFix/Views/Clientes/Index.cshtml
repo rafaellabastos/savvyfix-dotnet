@@ -1,0 +1,31 @@
+@model Clientes
+
+@{
+    ViewData["Title"] = "Clientes";
+}
+
+<!-- Mostrar dados do login do usuário logado -->
+
+<h1 class="display-5 text-center pb-4 pt-4">Usuário Logado</h1>
+<table  class="table table-bordered table-hover table-custom mx-auto pt-4 border border-secondary" style="width: 70rem">
+    <thead>
+    <tr>
+        <th scope="col">ID</th>
+        <th scope="col">CPF</th>
+        <th scope="col">Nome</th>
+        <th scope="col">CEP</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <th scope="row">@Html.DisplayFor(model => model.IdCliente)</th>
+        <td>@Html.DisplayFor(model => model.CpfClie)</td>
+        <td>@Html.DisplayFor(model => model.NmClie)</td>
+        <td>@Html.DisplayFor(model => model.CepEndereco)</td>
+    </tr>
+    </tbody>
+</table>
+
+<a asp-controller="Home" asp-action="Index" class="btn btn-primary">Voltar</a>
+<a asp-action="Editar" asp-route-id="@Model.IdCliente" class="btn btn-outline-warning">Editar</a>
+<a asp-action="Excluir" asp-route-id="@Model.IdCliente" class="btn btn-outline-danger">Excluir</a>

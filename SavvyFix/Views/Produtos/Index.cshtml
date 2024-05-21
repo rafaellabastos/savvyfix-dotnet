@@ -1,0 +1,40 @@
+@model IEnumerable<Produtos>
+
+@{
+    ViewData["Title"] = "Produtos";
+}
+<div>
+    <h1 class="d-flex justify-content-center display-4 pt-4">Produtos</h1>
+    <a href="/Produtos/Adicionar" class="btn btn-outline-primary">Adicionar um produto</a>
+
+    <div>
+        <!-- Busca dos produtos -->
+        @foreach (var item in Model)
+        {
+            <div class="d-flex justify-content-center pt-5 text-center">
+                <div class="card d-flex justify-content-center" style="width: 18rem;">
+                    <img src="@Html.DisplayFor(modelItem => item.Img)" class="card-img-top border border-secondary" alt="...">
+                    <div class="card-body border border-secondary">
+                        <h5 class="card-title">@Html.DisplayFor(modelItem => item.NmProd)</h5>
+                        <p class="card-text ">@Html.DisplayFor(modelItem => item.DescProd)</p>
+                    </div>
+                    <ul class="list-group list-group-flush border border-secondary">
+                        <li class="list-group-item">@Html.DisplayFor(modelItem => item.MarcaProd)</li>
+                        <li class="list-group-item border-top border-secondary">@Html.DisplayFor(modelItem => item.PrecoFixo)</li>
+                    </ul>
+                    <div class="card-body border border-secondary rounded-bottom">
+                        <a href="@Url.Action("Comprar", "Compras", new { idProd = item.IdProd, nmProd = item.NmProd })" class="btn btn-outline-primary">Comprar</a>
+                        <a asp-action="Editar" asp-route-id="@item.IdProd" class="btn btn-outline-warning">Editar</a>
+                        <a asp-action="Excluir" asp-route-id="@item.IdProd" class="btn btn-outline-danger">Excluir</a>
+
+                    </div>
+                </div>
+
+            </div>
+        }
+    </div>
+    
+</div>    
+    
+   
+

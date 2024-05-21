@@ -1,0 +1,29 @@
+@{
+ViewData["Title"] = "Login";
+}
+
+<!-- Realizar login pelo cpf e senha cadastrados no banco -->
+
+<h1 class="display-5 text-center pb-4 pt-3">Login</h1>
+
+@if (!string.IsNullOrEmpty(ViewBag.ErrorMessage))
+{
+<div class="alert alert-danger" role="alert">
+    @ViewBag.ErrorMessage
+</div>
+}
+
+<form class="card-body mx-auto" style="width: 40rem;" asp-action="Login" method="post">
+    <div class="mb-3">
+        <label for="cpf" class="form-label font-monospace">CPF:</label>
+        <input type="text" class="form-control border border-secondary" id="cpf" name="cpf" required>
+    </div>
+    <div class="mb-3">
+        <label for="senha" class="form-label font-monospace">Senha:</label>
+        <input type="password" class="form-control border border-secondary" id="senha" name="senha" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Entrar</button>
+    <a asp-controller="Home" asp-action="Index" class="btn btn-danger">Voltar</a>
+</form>
+
+

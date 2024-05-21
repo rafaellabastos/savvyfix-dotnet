@@ -1,0 +1,33 @@
+@model IEnumerable<Compras>
+@{
+    ViewData["Title"] = "Compras";
+}
+<h1 class="display-5 text-center pb-5 pt-4">Histórico de Compras da SavvyFix</h1>
+@foreach (var item in Model)
+{
+    <table  class="table table-bordered table-hover table-custom mx-auto pt-4 border border-secondary text-center">
+        <thead>
+        <tr>
+            <th scope="col" style="width: 40px">ID</th>
+            <th scope="col" style="width: 25rem">Produto</th>
+            <th scope="col" style="width: 10rem">Quantidade</th>
+            <th scope="col" style="width: 10rem">Valor</th>
+            <th scope="col" style="width: 25rem">Alterar</th>
+            
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <th scope="row">@item.IdCompra</th>
+            <td>@item.NmProd</td>
+            <td>@item.QntdProd</td>
+            <td>@item.ValorCompra</td>
+            <td>
+                <a asp-action="Editar" asp-route-id="@item.IdCompra" class="btn btn-outline-warning">Editar</a>
+                <a asp-action="Excluir" asp-route-id="@item.IdCompra" class="btn btn-outline-danger">Excluir</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+}
+<a asp-controller="Home" asp-action="Index" class="btn btn-primary">Voltar</a>

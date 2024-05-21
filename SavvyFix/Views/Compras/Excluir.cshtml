@@ -1,0 +1,32 @@
+@model SavvyFix.Models.Compras
+
+@{
+ViewData["Title"] = "Excluir Compras";
+}
+    <!-- Excluir um histórico no banco de dados -->
+
+<h2 class="display-5 text-center pb-4">Editar Compra</h2>
+
+<form class="card-body mx-auto" style="width: 40rem;" asp-action="Excluir" method="post">
+    <div class="mb-3">
+        <label asp-for="IdCompra" class="control-label font-monospace">Id:</label>
+        <input asp-for="IdCompra" class="form-control border border-secondary" readonly/>
+    </div>
+    <div class="mb-3">
+        <label asp-for="NmProd" class="control-label font-monospace">Nome:</label>
+        <input asp-for="NmProd" class="form-control border border-secondary" readonly />
+    </div>
+    <div class="mb-3">
+        <label asp-for="QntdProd" class="control-label font-monospace">Quantidade:</label>
+        <input asp-for="QntdProd" class="form-control border border-secondary" readonly/>
+        <span asp-validation-for="QntdProd" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="ValorCompra" class="control-label font-monospace">Valor:</label>
+        <input asp-for="ValorCompra" class="form-control border border-secondary" readonly />
+    </div>
+    <div class="mb-3">
+        <input type="submit" value="Excluir" class="btn btn-primary"/>
+        <a asp-controller="Compras" asp-action="Index" class="btn btn-danger">Voltar</a>
+    </div>
+</form>
